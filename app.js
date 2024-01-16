@@ -5,7 +5,9 @@ const productRoutes = require("./routes/productRoutes");
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 7000;
+const port = port || 7000;
+
+console.log(process.env.PORT);
 
 app.use(express.json());
 
