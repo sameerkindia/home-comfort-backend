@@ -2,16 +2,16 @@ const express = require("express");
 const Mongoose = require("mongoose");
 const productRoutes = require("./routes/productRoutes");
 
+require("dotenv").config();
+
 const app = express();
-const port = 7000;
+const port = process.env.PORT || 7000;
 
 app.use(express.json());
 
 app.use("/api/v1/products", productRoutes);
 
-Mongoose.connect(
-  `mongodb+srv://sameerkhanmm355:2VbLBAiBhVg0l8L2@home-comfort.c49pkkq.mongodb.net/store?retryWrites=true&w=majority`
-)
+Mongoose.connect(process.env.MONGODB_URL)
   .then(() => {
     app.listen(port, () => {
       console.log("your server is live");
