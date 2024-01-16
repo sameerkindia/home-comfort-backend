@@ -7,7 +7,7 @@ const port = 7000;
 
 app.use(express.json());
 
-app.use("/", productRoutes);
+app.use("/api/v1/products", productRoutes);
 
 Mongoose.connect(
   `mongodb+srv://sameerkhanmm355:2VbLBAiBhVg0l8L2@home-comfort.c49pkkq.mongodb.net/store?retryWrites=true&w=majority`
